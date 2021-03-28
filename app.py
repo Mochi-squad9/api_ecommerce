@@ -7,12 +7,12 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-@app.route('/api')
+@app.route('/api/', methods=['GET'])
 def search():
     return jsonify(PRELOADED)
 
 
-@app.route('/api/getProducts', methods=['POST'])
+@app.route('/api/getProducts/', methods=['POST'])
 def getProducts():
     content = request.json
     product_list = []
