@@ -7,7 +7,7 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-@app.route('/api', methods=['GET'])
+@app.route('/api')
 def search():
     return jsonify(PRELOADED)
 
