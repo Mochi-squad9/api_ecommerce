@@ -16,7 +16,7 @@ def search():
 def getProducts():
     content = request.json
     product_list = []
-    for each in content["cod"]:
+    for each in content["products_list"]:
         product_list.append(getProductDetail(each))
     return jsonify(product_list)
 
