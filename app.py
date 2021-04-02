@@ -46,9 +46,15 @@ def connectContext():
 def getProductDetail(cod):
     s = connectContext()
     r = s.get(URL + URL_PRODUCT + str(cod) + "/")
-    product = r.json()
-    product['produto']['image'] = "https://img.kalunga.com.br/fotosdeprodutos/" + str(cod) + ".jpg"
-    return product['produto']
+    productAll = r.json()
+    product = productAll['produto']
+    del product['Classificacao']
+    del product['Descricao']
+    del product['Fabricante']
+    del product['Quantidade'] #delete irrelevant info, avoid view take time 
+    del product['SubGrupo']
+    product['image'] = "https://img.kalunga.com.br/fotosdeprodutos/" + str(cod) + ".jpg"
+    return product
 
 
 URL = 'https://www.kalunga.com.br/'
